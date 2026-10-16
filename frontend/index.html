@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manufacturing Quality Intelligence</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="logo">Q</span><div><b>QUALITY</b><small>Manufacturing defect monitor</small></div></div>
+  <nav id="nav">
+    <button data-page="home" class="active">Dashboard</button>
+    <button data-page="predict">Predict Defect</button>
+    <button data-page="batch">Batch Analysis</button>
+    <button data-page="insights">Insights</button>
+  </nav>
+  <div class="status" id="status"><i></i><span>Connecting…</span></div>
+</header>
+
+<main>
+<!-- A. DASHBOARD -->
+<section id="home" class="page active">
+  <div class="hero">
+    <div>
+      <p class="eyebrow">OPERATIONS REPORT</p>
+      <h1>Spot the factors behind <em>production defects.</em></h1>
+      <p class="lead">Review historical production patterns, compare model performance, and check single-record or batch-level defect risk without extra visual noise.</p>
+      <button class="btn" data-go="predict">Review defect risk →</button>
+    </div>
+    <div class="card donut-card"><h3>Defect distribution</h3><div id="donut"></div><div id="donutLegend" class="legend"></div></div>
+  </div>
+  <div class="kpis" id="kpis"></div>
+  <div class="card note" id="pipeline"></div>
+</section>
+
+<!-- B. PREDICT -->
+<section id="predict" class="page">
+  <h2>Predict Defect <small>Enter one production record</small></h2>
+  <div class="split">
+    <div>
+      <div class="actions"><button class="ghost" id="fillMedian">Fill with typical values</button><button class="ghost" id="fillLow">Low-risk example</button><button class="ghost" id="fillHigh">High-risk example</button></div>
+      <div id="formGroups"></div>
+      <button class="btn wide" id="analyzeBtn">Analyze Production</button>
+      <p class="err" id="predictErr"></p>
+    </div>
+    <div class="card sticky" id="resultCard">
+      <div class="empty">◌<p>Your result appears here.<br>Fill the form and press <b>Analyze Production</b>.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- C. BATCH -->
+<section id="batch" class="page">
+  <h2>Batch Analysis <small>Upload a CSV of many records</small></h2>
+  <label class="drop" id="drop">
+    <input type="file" id="file" accept=".csv" hidden>
+    <span class="dropicon">⇪</span><b>Drop a CSV here or click to browse</b>
+    <small id="requiredCols"></small>
+  </label>
+  <div class="actions"><button class="ghost" id="sampleBtn">Download a sample CSV</button><span class="fname" id="fname"></span></div>
+  <p class="err" id="batchErr"></p>
+  <div id="batchOut" hidden>
+    <div class="kpis" id="batchKpis"></div>
+    <div class="grid2">
+      <div class="card"><h3>Risk breakdown</h3><div id="riskBars"></div></div>
+      <div class="card"><h3>Predicted outcome</h3><div id="batchDonut"></div><div id="batchLegend" class="legend"></div></div>
+    </div>
+    <div class="card"><div class="rowhead"><h3>Results <small id="rowNote"></small></h3><button class="btn sm" id="dlBtn">Download predictions CSV</button></div>
+      <div class="tablewrap"><table id="resTable"></table></div></div>
+  </div>
+</section>
+
+<!-- D. INSIGHTS -->
+<section id="insights" class="page">
+  <h2>Insights &amp; Model <small>Performance and defect-associated factors</small></h2>
+  <div class="kpis" id="metricKpis"></div>
+  <div class="grid2">
+    <div class="card"><h3>Model comparison <small>(ROC-AUC &amp; F1, test set)</small></h3><div id="compare"></div></div>
+    <div class="card"><h3>Confusion matrix <small id="cmName"></small></h3><div id="cm"></div></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h3>Feature importance <small>(permutation, ROC-AUC drop)</small></h3><div id="importance"></div></div>
+    <div class="card"><h3>Defective vs Non-defective <small>(average values)</small></h3><div class="tablewrap"><table id="groupTable"></table></div></div>
+  </div>
+  <div class="card note" id="caveat"></div>
+</section>
+</main>
+<footer>Decision-support tool for academic review. Patterns are statistical associations, not proof of cause.</footer>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+{
+  "model_name": "Decision Tree",
+  "trained_at": "2026-10-03T11:45:42",
+  "features": [
+    "ProductionVolume",
+    "ProductionCost",
+    "SupplierQuality",
+    "DeliveryDelay",
+    "QualityScore",
+    "MaintenanceHours",
+    "DowntimePercentage",
+    "InventoryTurnover",
+    "StockoutRate",
+    "WorkerProductivity",
+    "SafetyIncidents",
+    "EnergyConsumption",
+    "EnergyEfficiency",
+    "AdditiveProcessTime",
+    "AdditiveMaterialCost"
+  ],
+  "excluded_features": [
+    "DefectRate"
+  ],
+  "leakage_note": "DefectRate is named like an outcome measurement, so it was excluded from the model to avoid possible leakage. It is still reported in the pattern analysis.",
+  "metrics": {
+    "accuracy": 0.8101851851851852,
+    "precision": 0.9432773109243697,
+    "recall": 0.8238532110091743,
+    "f1": 0.8795298726738492,
+    "roc_auc": 0.8103500489890443
+  },
+  "confusion": {
+    "tn": 76,
+    "fp": 27,
+    "fn": 96,
+    "tp": 449
+  },
+  "comparison": [
+    {
+      "model": "Logistic Regression",
+      "accuracy": 0.7067901234567902,
+      "precision": 0.9256594724220624,
+      "recall": 0.708256880733945,
+      "f1": 0.8024948024948025,
+      "roc_auc": 0.7677384875745971,
+      "confusion": {
+        "tn": 72,
+        "fp": 31,
+        "fn": 159,
+        "tp": 386
+      }
+    },
+    {
+      "model": "Decision Tree",
+      "accuracy": 0.8101851851851852,
+      "precision": 0.9432773109243697,
+      "recall": 0.8238532110091743,
+      "f1": 0.8795298726738492,
+      "roc_auc": 0.8103500489890443,
+      "confusion": {
+        "tn": 76,
+        "fp": 27,
+        "fn": 96,
+        "tp": 449
+      }
+    },
+    {
+      "model": "Random Forest",
+      "accuracy": 0.8595679012345679,
+      "precision": 0.9468503937007874,
+      "recall": 0.8825688073394495,
+      "f1": 0.9135802469135802,
+      "roc_auc": 0.7843235058341498,
+      "confusion": {
+        "tn": 76,
+        "fp": 27,
+        "fn": 64,
+        "tp": 481
+      }
+    },
+    {
+      "model": "KNN",
+      "accuracy": 0.8379629629629629,
+      "precision": 0.8470031545741324,
+      "recall": 0.9853211009174312,
+      "f1": 0.910941475826972,
+      "roc_auc": 0.7276565422641845,
+      "confusion": {
+        "tn": 6,
+        "fp": 97,
+        "fn": 8,
+        "tp": 537
+      }
+    }
+  ],
+  "feature_importance": {
+    "QualityScore": 0.16012,
+    "MaintenanceHours": 0.15964,
+    "ProductionVolume": 0.12932,
+    "InventoryTurnover": 0.00219,
+    "StockoutRate": 0.00204,
+    "EnergyEfficiency": 0.00125,
+    "DeliveryDelay": 0.0005,
+    "ProductionCost": 0.00029,
+    "SupplierQuality": 7e-05,
+    "SafetyIncidents": 0.0,
+    "AdditiveProcessTime": 0.0,
+    "DowntimePercentage": -0.00072,
+    "AdditiveMaterialCost": -0.00102,
+    "EnergyConsumption": -0.00124,
+    "WorkerProductivity": -0.0027
+  },
+  "group_analysis": {
+    "ProductionVolume": {
+      "non_defective": 470.86653771760155,
+      "defective": 563.26735218509,
+      "corr": 0.1289732521116926
+    },
+    "ProductionCost": {
+      "non_defective": 12158.87732617497,
+      "defective": 12473.16940259304,
+      "corr": 0.026720440794395017
+    },
+    "SupplierQuality": {
+      "non_defective": 89.32868648089413,
+      "defective": 89.92909602279484,
+      "corr": 0.03818394916539924
+    },
+    "DeliveryDelay": {
+      "non_defective": 2.5377176015473886,
+      "defective": 2.562982005141388,
+      "corr": 0.005424640206576993
+    },
+    "QualityScore": {
+      "non_defective": 85.44237547023259,
+      "defective": 79.12645373709502,
+      "corr": -0.19921873116859537
+    },
+    "MaintenanceHours": {
+      "non_defective": 6.79110251450677,
+      "defective": 12.36614028644877,
+      "corr": 0.29710678547488045
+    },
+    "DowntimePercentage": {
+      "non_defective": 2.487697146615071,
+      "defective": 2.50396973412749,
+      "corr": 0.004128339856313456
+    },
+    "InventoryTurnover": {
+      "non_defective": 5.9836668333473915,
+      "defective": 6.026496211949546,
+      "corr": 0.006733112291044528
+    },
+    "StockoutRate": {
+      "non_defective": 0.048197158194736835,
+      "defective": 0.051387275199124456,
+      "corr": 0.04057392370859203
+    },
+    "WorkerProductivity": {
+      "non_defective": 90.10873065850535,
+      "defective": 90.02708790270415,
+      "corr": -0.005224437399657016
+    },
+    "SafetyIncidents": {
+      "non_defective": 4.69825918762089,
+      "defective": 4.571428571428571,
+      "corr": -0.016038718923175245
+    },
+    "EnergyConsumption": {
+      "non_defective": 2975.158108592946,
+      "defective": 2991.026546735352,
+      "corr": 0.005038920541792797
+    },
+    "EnergyEfficiency": {
+      "non_defective": 0.3091324757767047,
+      "defective": 0.2979995239748944,
+      "corr": -0.03503076188134937
+    },
+    "AdditiveProcessTime": {
+      "non_defective": 5.438598518305122,
+      "defective": 5.4784585101666465,
+      "corr": 0.005618931489121399
+    },
+    "AdditiveMaterialCost": {
+      "non_defective": 299.76985515296644,
+      "defective": 299.4671820930863,
+      "corr": -0.0009525480271982157
+    },
+    "DefectRate": {
+      "non_defective": 2.010328386311877,
+      "defective": 2.8893857118951987,
+      "corr": 0.24574564599275286
+    }
+  },
+  "input_stats": {
+    "ProductionVolume": {
+      "min": 100.0,
+      "max": 999.0,
+      "mean": 548.5231481481482,
+      "median": 549.0,
+      "is_int": true
+    },
+    "ProductionCost": {
+      "min": 5000.174521330492,
+      "max": 19993.365548756577,
+      "mean": 12423.018475584355,
+      "median": 12405.204655977854,
+      "is_int": false
+    },
+    "SupplierQuality": {
+      "min": 80.00482009370269,
+      "max": 99.98921362119349,
+      "mean": 89.83328993231252,
+      "median": 89.70486059912596,
+      "is_int": false
+    },
+    "DeliveryDelay": {
+      "min": 0.0,
+      "max": 5.0,
+      "mean": 2.5589506172839505,
+      "median": 3.0,
+      "is_int": true
+    },
+    "QualityScore": {
+      "min": 60.01009817962248,
+      "max": 99.99699307332706,
+      "mean": 80.13427211241357,
+      "median": 80.26531159628432,
+      "is_int": false
+    },
+    "MaintenanceHours": {
+      "min": 0.0,
+      "max": 23.0,
+      "mean": 11.476543209876544,
+      "median": 12.0,
+      "is_int": true
+    },
+    "DowntimePercentage": {
+      "min": 0.0016648394255397,
+      "max": 4.997590657077265,
+      "mean": 2.501373151490477,
+      "median": 2.465150534278851,
+      "is_int": false
+    },
+    "InventoryTurnover": {
+      "min": 2.0016111850744838,
+      "max": 9.998577322891654,
+      "mean": 6.019662017894819,
+      "median": 6.022389051106356,
+      "is_int": false
+    },
+    "StockoutRate": {
+      "min": 2.0517960894972377e-06,
+      "max": 0.0999973867646256,
+      "mean": 0.050878234924041615,
+      "median": 0.05183740599866895,
+      "is_int": false
+    },
+    "WorkerProductivity": {
+      "min": 80.00496047416955,
+      "max": 99.99678580952808,
+      "mean": 90.04011546589835,
+      "median": 90.12574261590358,
+      "is_int": false
+    },
+    "SafetyIncidents": {
+      "min": 0.0,
+      "max": 9.0,
+      "mean": 4.591666666666667,
+      "median": 5.0,
+      "is_int": true
+    },
+    "EnergyConsumption": {
+      "min": 1000.7201559358512,
+      "max": 4997.074740785263,
+      "mean": 2988.4944533650983,
+      "median": 2996.8223014915707,
+      "is_int": false
+    },
+    "EnergyEfficiency": {
+      "min": 0.1002379032170629,
+      "max": 0.4994998046638267,
+      "mean": 0.2997759857284548,
+      "median": 0.2974700243251701,
+      "is_int": false
+    },
+    "AdditiveProcessTime": {
+      "min": 1.0001506263214126,
+      "max": 9.99974932631184,
+      "mean": 5.472098134922076,
+      "median": 5.437134415045657,
+      "is_int": false
+    },
+    "AdditiveMaterialCost": {
+      "min": 100.21113747433294,
+      "max": 499.98278174750806,
+      "mean": 299.51547899801164,
+      "median": 299.72891814562325,
+      "is_int": false
+    },
+    "DefectRate": {
+      "min": 0.5007098506012553,
+      "max": 4.998529423589416,
+      "mean": 2.749116379386996,
+      "median": 2.7087746854219654,
+      "is_int": false
+    }
+  },
+  "dataset": {
+    "records": 3240,
+    "n_features": 15,
+    "defective": 2723,
+    "non_defective": 517,
+    "defective_pct": 0.8404320987654321,
+    "missing": 0,
+    "duplicates": 0,
+    "train_size": 2592,
+    "test_size": 648
+  }
+}
