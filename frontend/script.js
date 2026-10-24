@@ -108,7 +108,7 @@ function gauge(p) {
   const x = 100 + 80 * Math.cos(a), y = 100 - 80 * Math.sin(a);
   return `<svg class="gauge" viewBox="0 0 200 118"><path d="M20 100 A80 80 0 0 1 180 100" fill="none" stroke="#ffffff12" stroke-width="16" stroke-linecap="round"/>
   <path d="M20 100 A80 80 0 0 1 ${x.toFixed(1)} ${y.toFixed(1)}" fill="none" stroke="${c}" stroke-width="16" stroke-linecap="round"/>
-  <text x="100" y="94" text-anchor="middle" fill="#e6eefc" font-size="30" font-weight="700" font-family="monospace">${pct(p)}</text>
+  <text x="100" y="94" text-anchor="middle" fill="#161616" font-size="30" font-weight="700" font-family="monospace">${pct(p)}</text>
   <text x="100" y="112" text-anchor="middle" fill="#8aa0c4" font-size="9" letter-spacing="2">DEFECT PROBABILITY</text></svg>`;
 }
 $("#analyzeBtn").onclick = async () => {
