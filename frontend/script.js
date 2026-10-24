@@ -43,7 +43,7 @@ function donut(el, legendEl, parts) {
     off += len;
   });
   $(el).innerHTML = `<svg viewBox="0 0 200 200" style="width:200px;display:block;margin:auto">${arcs}
-    <text x="100" y="98" text-anchor="middle" fill="#e6eefc" font-size="26" font-weight="700" font-family="monospace">${pct(parts[0].v / total, 0)}</text>
+    <text x="100" y="98" text-anchor="middle" fill="#02050b" font-size="26" font-weight="700" font-family="monospace">${pct(parts[0].v / total, 0)}</text>
     <text x="100" y="118" text-anchor="middle" fill="#8aa0c4" font-size="10">${parts[0].n.toUpperCase()}</text></svg>`;
   $(legendEl).innerHTML = parts.map((p) => `<span><i style="background:${p.c}"></i>${p.n} · ${p.v.toLocaleString()}</span>`).join("");
 }
